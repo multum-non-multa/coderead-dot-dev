@@ -1,6 +1,6 @@
 import React from 'react'
 import Highlight, { defaultProps } from 'prism-react-renderer'
-import theme from 'prism-react-renderer/themes/oceanicNext'
+import theme from 'prism-react-renderer/themes/nightOwlLight'
 import styled from 'styled-components'
 
 const PrismWrapper = props => {
@@ -38,7 +38,7 @@ const Pre = styled.pre`
   background: #1e1e1e;
   padding: 1rem 1.5rem;
   border-radius: var(--radius);
-  margin: 3rem 0;
+  margin: 2.5rem 0;
   /* font-size: 0.9rem; */
   font-size: 1rem;
   /* font-family: 'Courier New', Courier, monospace; */
@@ -52,14 +52,18 @@ const Pre = styled.pre`
     top: 0;
     right: 5%;
     color: rgb(156, 220, 254);
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: 0.8rem;
+    font-weight: 600;
     transform: translateY(-100%);
     text-transform: uppercase;
+    text-transform: lowercase;
     padding: 0.05rem 0.85rem 0;
+    /* aen */
+    padding: 0.05rem 1rem 0;
     border-top-left-radius: var(--radius);
     border-top-right-radius: var(--radius);
     background: #1e1e1e;
+    background: #000;
   }
 `
 const Container = styled.article`

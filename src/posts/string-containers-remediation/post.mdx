@@ -1,11 +1,103 @@
 ---
-title: '[6] Video on Replit Features: (a) Python Shell and (b) Run Button'
-slug: replit-python-shell
+title: Strings as Containers
+slug: string-as-containers
 image: ./images/main.jpg
-date: 2021-09-04
-author: mnm
-category: replit
-readTime: 2
+date: 2021-09-27
+author: alfred e. neuman
+category: strings
+readTime: 5
 ---
 
-## Post No. 007
+import { Link } from 'gatsby'
+import {
+  Headings,
+  Code,
+  Video,
+  RegVideo,
+  Blockquote,
+  PrismSetup,
+} from '../../components/Complete'
+
+<Headings.myH4>Start with a string</Headings.myH4>
+
+```python
+"cat"
+```
+
+But a `string` is merely a **_container_**.
+
+It **contains** characters. Here `c` and `a` and `t`.
+
+But it might as well contain a whole book: `In the beginning, God created ...`
+
+What do we mean by _container_?
+
+Envision something like this:
+
+`[ [c] [a] [t] ]`
+
+... but defined and known by the syntax `"cat"`.
+
+In fact, the `""` quotations marks act as a sort of wall that tell Python:
+
+- Treat these characters as the contents of a string container.
+
+<Headings.myH4>Data Containers</Headings.myH4>
+
+Python has lots of container types. Right now we are focusing on `strings`. But it has `lists`, `dictionaries`, `sets`, `tuples`, and on and on. Each has advantages and each has peculiar features.
+
+In any given container type you look for basic things it can do.
+
+Some give you the ability to perform all four basic operations on data:
+
+<div style={{marginBottom: '2rem'}}>
+
+- <span style={{ textDecoration: 'underline', fontWeight: 'bold' }}>C</span>
+  reate data
+
+- <span style={{ textDecoration: 'underline', fontWeight: 'bold' }}>R</span>ead
+  date
+
+- <span style={{ textDecoration: 'underline', fontWeight: 'bold' }}>U</span>
+  pdate data
+
+- <span style={{ textDecoration: 'underline', fontWeight: 'bold' }}>D</span>
+  elete data
+
+</div>
+
+These are, as the acronym suggests, known as 'CRUD' operations.
+
+Not all container types provide all four features. Nonetheless they **_all_** have the ability to **_create_** and **_read_** the data stored.
+
+Including `strings`.
+
+<Blockquote display="info">
+  What sense does it make to store data but not, at the very least, be able to
+  retrieve and read it?
+</Blockquote>
+
+<Headings.myH4>Reading from a String</Headings.myH4>
+
+So how do you 'read' from a `string`? That is, it's one thing to get the whole `string`, but many times you want a particular character or range of characters, not the whole thing.
+
+**You need a window into the container**
+
+What does a window look like?
+
+Not:
+
+```python
+# this won't work
+"cat"()
+
+# nor will this
+"cat"{}
+```
+
+But this:
+
+```python
+# think box or square [ ]
+"cat"[]
+```

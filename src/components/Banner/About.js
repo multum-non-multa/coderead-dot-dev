@@ -20,7 +20,7 @@ const About = () => {
       </a>
 
       <div>
-        <p>Click on Alfred E. Neumann for Earlier Posts</p>
+        <p>Click on Alfred for Earlier Posts</p>
       </div>
 
       {/* <SocialLinks styleClass="banner-icons" /> */}

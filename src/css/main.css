@@ -68,6 +68,25 @@ body {
 ul {
   list-style-type: none;
 }
+
+li {
+  font-size: 1.25rem;
+}
+
+li p {
+  display: inline;
+}
+
+li::before {
+  content: '\A';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--clr-primary-5);
+  display: inline-block;
+  margin: 0 15px;
+}
+
 a {
   text-decoration: none;
 }
