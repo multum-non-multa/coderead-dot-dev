@@ -7,16 +7,22 @@ import styled from 'styled-components'
 const About = () => {
   return (
     <Wrapper>
-      <Title title="about" />
-      <StaticImage
-        src="../../assets/CODEREAD.jpeg"
-        layout="fixed"
-        width={100}
-        height={100}
-        alt="about description"
-        className="img"
-      />
-      <p>You should know why you are here.</p>
+      <Title title="Earlier Posts" />
+      <a href="https://multum-non-multa.github.io/code/">
+        <StaticImage
+          src="../../assets/CODEREAD.jpeg"
+          layout="fixed"
+          width={100}
+          height={100}
+          alt="about description"
+          className="img"
+        />
+      </a>
+
+      <div>
+        <p>Click on Alfred E. Neumann for Earlier Posts</p>
+      </div>
+
       {/* <SocialLinks styleClass="banner-icons" /> */}
     </Wrapper>
   )
