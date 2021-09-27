@@ -1,0 +1,103 @@
+---
+title: String Conversions
+slug: str-conversions-to-ints
+image: ./images/main.jpg
+date: 2021-09-28
+author: alfred e. neuman
+category: type conversion
+readTime: 5
+---
+
+import { Link } from 'gatsby'
+import {
+  Headings,
+  Code,
+  Video,
+  RegVideo,
+  Blockquote,
+  PrismSetup,
+} from '../../components/Complete'
+
+<Headings.myH4>Types Sometimes Have to Change</Headings.myH4>
+
+Assume these are values coming from a user input or from a data base and they appear thus:
+
+```python
+
+"312"
+"3459012"
+
+```
+
+Question: Are these `integers` or `strings`?
+
+Well, they certainly contain numbers, but the give away is that they are contained within quotation `" "` marks. That tells you they are `strings` --- even though they are `strings` containing, within them, digit characters.
+
+Thus, given the specifications of some program, you may have to store them in variables. It turns out one is `area_code` and the other `phone_number`.
+
+Looked at this way, you understand better what they mean. But, at this point, they are still within a `string`.
+
+```python
+
+area_code = "312"
+phone_number = "3459012"
+
+```
+
+Let's say you have other `strings` containing digits and a decimal. In this case they represent the initial upward velocity and the projectile angle of an airplane, and the program is to take in this information and calculate flight duration:
+
+```python
+init_upward_vel = "4.5"
+proj_angle = "43.234"
+
+```
+
+You need not worry about solving that problem here. Your concern is what you do with this data.
+
+Remember: you have no choice as to how the data comes in. You can't say, "Well, just give me floating point values and integers. Then I can do math on those."
+
+Data often comes in as `string` values. That's that.
+
+So what to do?
+
+<Headings.myH4>Conversion of Data Types</Headings.myH4>
+
+Python provides an easy way to change from `string` to `number` types.
+
+To convert a `string` to an `integer`, just use the built-in function `int()`:
+
+```python
+# convert from string to integer
+>>> age = int("92")
+>>> age
+92
+# and to check the types
+>>> type(age)
+<class 'int'>
+```
+
+Whereas to convert a `string` to an `float`, just use the built-in function `float()`:
+
+```python
+# convert a string to a float
+>>> init_upward_vel = float("4.5")
+>>> proj_angle = float("43.234")
+# to check the types
+>>> type(init_upward_vel)
+<class 'float'>
+
+```
+
+<Blockquote display="info">
+
+Note the use of <Code>type()</Code> function to check the type of the variable.
+
+You do not have to do that, but sometimes it comes in handy.
+
+</Blockquote>
+
+Now, how would you take one value from a `string` of digits to use in arithmetic operations?
+
+<Link to="/posts/string-as-containers" className="btn">
+  Answer: see the prior post
+</Link>
