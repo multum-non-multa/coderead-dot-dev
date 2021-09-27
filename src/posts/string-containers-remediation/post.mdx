@@ -85,19 +85,44 @@ So how do you 'read' from a `string`? That is, it's one thing to get the whole `
 
 What does a window look like?
 
-Not:
+**Well not . . .**
 
 ```python
-# this won't work
-"cat"()
-
-# nor will this
-"cat"{}
+# No!
+"cat"( )
 ```
 
-But this:
+**Nor this . . .**
 
 ```python
-# think box or square [ ]
-"cat"[]
+# No!
+"cat"{ }
 ```
+
+**But this**
+
+```python
+
+"cat"[ ]
+# where the 'window' square brackets contain an integer
+
+```
+
+Within that window you put an `integer` -- the index of the character's location.
+
+For now, just think of getting one character at a time. Because the container's index values begin with `0`, in the Python `shell` you might have:
+
+```python
+>>> "cat"[0]
+c
+>>> "cat"[1]
+a
+>>> "cat"[2]
+t
+>>>
+
+```
+
+That is, if you only want a single character, just use a single integer value. **Only when you want more than a single character do you use the `[start:end]` notation with the `:` colon inserted.**
+
+More on `strings` later; this is all you need know now.
