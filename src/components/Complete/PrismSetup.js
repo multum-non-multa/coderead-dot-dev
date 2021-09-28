@@ -35,12 +35,17 @@ const PrismWrapper = props => {
 }
 // Styling Only
 const Pre = styled.pre`
+/* background attributes appear to be superseded somewhere */
   background: #1e1e1e;
+  background-color: #1e1e1e;
   padding: 1rem 1.5rem;
   border-radius: var(--radius);
   margin: 2.5rem 0;
   /* font-size: 0.9rem; */
-  font-size: 1rem;
+  /* trk */
+  font-size: 1.5rem;
+  /* trk */
+  font-weight: 700;
   /* font-family: 'Courier New', Courier, monospace; */
   font-family: Monaco, Courier, monospace;
   overflow-x: scroll;
