@@ -40,7 +40,7 @@ Take as an example a blackjack game in which the player receives two cards face 
 
 Assuming the player's total is less than 21, it falls to that player to decide: hit or fold.  
 
-If he takes another card and his total is 11 or over, he takes a risk.  The risk is magnified because he doesn't know the value of the dealer's second card.  
+If he takes another card and his total is 11 or over, he takes a risk he'll go over.  If he folds, he risks falling behind the dealer.  That risk is magnified because he doesn't know the value of the dealer's second card.  
 
 In Python the player's decision might look like this:
 
@@ -86,6 +86,28 @@ The boolean expression can then be broken out into three parts:
 
 - right value
 
+<br/>
+
+That `if` statement cannot operate without at least those three elements.  You need at least two values to compare.  And you must decide on which boolean operator will allow the comparison to be made.  
+
+In addition, it's important to remember that these operators return only one of two values: `True` or `False`.  
+
+```python
+
+>>> x = 10
+>>> y = 7
+>>> x != y
+True
+>>> x == y
+False
+>>> x < y
+False
+>>> x >= y
+True
+>>>
+```
+
+Regardless the choice, if the express
 
 
 
