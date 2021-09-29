@@ -2,7 +2,7 @@
 title: Decisions Decisions
 slug: bool-express-and-if
 image: ./images/main.jpg
-date: 2021-09-28
+date: 2021-09-29
 author: alfred e. neuman
 category: booleans & conditionals
 readTime: 5
@@ -25,9 +25,7 @@ import {
 
 <Headings.myH4>Program Flow</Headings.myH4>
 
-Dynamic programs must alter what they do based on the state of affairs.  If a user or a database responds one way versus another, the program --- any program worth its salt --- will respond in kind.  
-
-
+Dynamic programs must alter what they do based on the state of affairs. If a user or a database responds one way versus another, the program --- any program worth its salt --- will respond in kind.
 
 <GatsbyImage
   image={getImage(props.embeddedImages[0])}
@@ -36,34 +34,33 @@ Dynamic programs must alter what they do based on the state of affairs.  If a us
   height="15%"
 />
 
-Take as an example a blackjack game in which the player receives two cards face up but the dealer one card down and one up.  
+.
 
-Assuming the player's total is less than 21, it falls to that player to decide: hit or fold.  
+Take as an example a blackjack game in which the player must decide: hit or fold.
 
-If he takes another card and his total is 11 or over, he takes a risk he'll go over.  If he folds, he risks falling behind the dealer.  That risk is magnified because he doesn't know the value of the dealer's second card.  
+If his current total is 11, he takes a risk that a hit will put him over. If he folds, he risks falling behind the dealer.
 
 In Python the player's decision might look like this:
 
 ```python
 
 if decision == 'hit':
-    player_hand = player_hand + new_card
+    current_points = current_points + new_card_value
+
+else:
+  # process final score
 
 ```
 
+In order to 'make' decisions in a program, that is, in order to alter the course of the program's operations depending on the state, one uses conditional statments, comprising keywords such as `if` and _boolean expressions_.
+
 <Headings.myH4>Anatomy of an `if` Statement</Headings.myH4>
 
-Python offers three types of conditional statements --- `if`, `elif`, and `else`.  __But__ the last two cannot be used unless and until an `if` statement starts the code.
+Python offers three types of conditional statements --- `if`, `elif`, and `else`. **But** the last two cannot be used unless and until an `if` statement starts the code.
 
-`if` can be broken down into four parts:
+An `if` statement can be broken down into four parts:
 
-<GatsbyImage
-  image={getImage(props.embeddedImages[1])}
-  title="if clause"
-  alt="if clause"
-/>
-
-- `if` itself
+- the keyword `if`
 
 - the boolean expression
 
@@ -72,30 +69,37 @@ Python offers three types of conditional statements --- `if`, `elif`, and `else`
 - the code block that runs if and only if the boolean expression is `True`.
 
 <GatsbyImage
+  image={getImage(props.embeddedImages[1])}
+  title="if clause"
+  alt="if clause"
+/>
+
+The boolean expression itself can then be broken out into three parts:
+
+- left value
+
+- one of six boolean operators (`==`, `!=`, `>`, `<`, `>=`,`<=` )
+
+- right value
+
+<GatsbyImage
   image={getImage(props.embeddedImages[2])}
   title="boolean expression"
   alt="boolean expression"
   width="100vw"
 />
 
-The boolean expression can then be broken out into three parts:
+<br />
 
-- left value
+That `if` statement cannot operate without at least those three elements. You need at least two values to compare. And you must decide on which boolean operator will allow the comparison to be made.
 
-- one of six boolean operators (`==`, `!=`, `>`, `<`, `>=`,`<=` ) 
-
-- right value
-
-<br/>
-
-That `if` statement cannot operate without at least those three elements.  You need at least two values to compare.  And you must decide on which boolean operator will allow the comparison to be made.  
-
-In addition, it's important to remember that these operators return only one of two values: `True` or `False`.  
+In addition, it's important to remember that these operators return only one of two values: `True` or `False`.
 
 ```python
-
+# assign values
 >>> x = 10
 >>> y = 7
+# boolean expressions
 >>> x != y
 True
 >>> x == y
@@ -107,7 +111,52 @@ True
 >>>
 ```
 
-Regardless the choice, if the express
+Regardless the choice, if the expression is true, then the code for that statement will run. If false, the program bypasses the condition and moves on.
+
+```python
+# pseudo-code
+
+if <expression false> :
+  code_here_is_ignored
+
+...
+...
+but_code_here_run
 
 
+```
 
+<Headings.myH4>The `else` Statement</Headings.myH4>
+
+You may just want to check a condition and then move on. Sometimes, you have two mutually exclusive alternatives. That is, if the first is true, the second is false and vice versa.
+
+Then you express it with and `if` block followed by an `else`:
+
+```python
+
+if light_state == "on":
+  # call a function that turns it off
+  turn_off()
+
+else:
+  turn_on()
+
+```
+
+A light is either on or off. If you program controls a toggle switch, if it is flipped one way or the other, it needs to reverse the light's state. Thus, if on, then turn off; if off, turn on. You have no more than two alternatives.
+
+<Blockquote display='info'>
+
+Note
+
+The <Code>else</Code> statement contains no boolean expression.
+
+It's simply the keyword, a colon, and a code block below. That is, it is intended as a sort of default.
+
+</Blockquote>
+
+<Headings.myH4>The `elif` Statement</Headings.myH4>
+
+Often enough, you have middle ground --- a first, second, or multiple choices or possibilities you want to handle.
+
+Then you use `elif` (perhaps several times) and **always after** the `if`.
