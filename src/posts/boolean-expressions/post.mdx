@@ -56,7 +56,9 @@ In order to 'make' decisions in a program, that is, in order to alter the course
 
 <Headings.myH4>Anatomy of an `if` Statement</Headings.myH4>
 
-Python offers three types of conditional statements --- `if`, `elif`, and `else`. **But** the last two cannot be used unless and until an `if` statement starts the code.
+Python offers three types of conditional statements --- `if`, `elif`, and `else`. 
+
+**But** the last two cannot be used unless and until an `if` statement starts the code.  Whereas, you may need nothing but an `if` statement for your purposes.  
 
 An `if` statement can be broken down into four parts:
 
@@ -111,7 +113,11 @@ True
 >>>
 ```
 
-Regardless the choice, if the expression is true, then the code for that statement will run. If false, the program bypasses the condition and moves on.
+Regardless the choice:
+
+- __if the expression is true, then the code for that statement will run__. 
+
+- __false and the program bypasses the condition entirely and moves down to the next statement__.
 
 ```python
 # pseudo-code
@@ -128,9 +134,9 @@ but_code_here_run
 
 <Headings.myH4>The `else` Statement</Headings.myH4>
 
-You may just want to check a condition and then move on. Sometimes, you have two mutually exclusive alternatives. That is, if the first is true, the second is false and vice versa.
+You may just want to check a single condition and then move on. But sometimes, you have two mutually exclusive alternatives. That is, if the first is true, the second is false and vice versa.
 
-Then you express it with and `if` block followed by an `else`:
+Then you express it with and `if` block followed by an `else`.  Example of control over a toggle light switch:
 
 ```python
 
@@ -143,20 +149,60 @@ else:
 
 ```
 
-A light is either on or off. If you program controls a toggle switch, if it is flipped one way or the other, it needs to reverse the light's state. Thus, if on, then turn off; if off, turn on. You have no more than two alternatives.
+A light is either on or off. If you program controls a toggle switch, then flipping the switch one way or the other should cause the light's state to reverse. Thus, if currently on, then turn off; if off, turn on. The point:  _You have only __two__ options_.
 
-<Blockquote display='info'>
+<Blockquote display='warning'>
 
-Note
-
-The <Code>else</Code> statement contains no boolean expression.
-
-It's simply the keyword, a colon, and a code block below. That is, it is intended as a sort of default.
+The <Code>else</Code> statement contains no boolean expression.  It is simply the keyword, a colon, and a code block below. It acts as a default statement.
 
 </Blockquote>
+
+
+<Headings.myH4>Try if and elements</Headings.myH4>
+
+Play around with the code below.  Tweak and run to get a feel for `if` and `else`.
+
+<Blockquote display="info">
+
+  Make the Python environment below full screen by opening the hamburger menu on the upper left and selecting `Fullscreen`. 
+
+</Blockquote>
+
+<iframe src="https://trinket.io/embed/python3/e8dbb5ad32" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
 
 <Headings.myH4>The `elif` Statement</Headings.myH4>
 
 Often enough, you have middle ground --- a first, second, or multiple choices or possibilities you want to handle.
 
-Then you use `elif` (perhaps several times) and **always after** the `if`.
+Then you use `elif` (sometimes more than once) and **always after** the `if` but, if you have one, the `else`.
+
+For example, say you have scoring categories --- from 0 to 100 points gains you one level; 101 to 200 gains you another; etc.  You might code that as follows:
+
+```python
+
+if score <= 100:
+  player = 'Proficient'
+
+elif score <= 200:
+  player = 'Highly Skilled'
+
+elif score <= 350:
+  player = 'Top Tier'
+
+elif score > 350:
+  player = 'Master'
+
+# default - just in case
+else:
+  player = 'Unranked'
+
+```
+
+<iframe src="https://trinket.io/embed/python3/512d3f4b87?showInstructions=true" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+.
+
+Far more is to come on conditionals and booleans --- nesting, logical operators, and use in loops.  
+
+.
