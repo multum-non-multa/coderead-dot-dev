@@ -7,8 +7,9 @@ const Footer = () => {
         {/* <SocialLinks styleClass="footer-icons" /> */}
         <p>
           &copy; {new Date().getFullYear()} by multum non multa&trade;. All
-          rights reserved.
+          rights reserved. (Don't even think about it.)
         </p>
+        <p>Property rights forever.</p>
       </div>
     </footer>
   )

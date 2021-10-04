@@ -1,0 +1,172 @@
+---
+title: Introduction to Lists in Python
+slug: lists-intro
+image: ./images/main.jpg
+date: 2021-10-03
+author: alfred e. neuman
+category: lists
+readTime: 5
+---
+
+import { Link } from 'gatsby'
+import {
+  Headings,
+  Code,
+  Video,
+  RegVideo,
+  Blockquote,
+  PrismSetup,
+} from '../../components/Complete'
+
+<Headings.myH4>Lists and Keeping Track of Data</Headings.myH4>
+
+Consider a game for which keeping track of scores is important, i.e., when you must know more than just the last value. Rather, you must know the player's history of points earned and in what order.
+
+```python
+# initialize the list with a single score of 100
+scores = [100]
+#
+# later on add another score
+scores.append(130)
+# again, later on add another score
+scores.append(10)
+
+# check on all the scores
+print(scores)
+# prints out:
+# [100, 130, 10]
+
+```
+
+Were it not for the `list` data structure, you might have to create a variable for every score, an impossibility when dealing with a program that is supposed run without your having to intervene or anticipate every possible score sets. What if you have over a hundred scores for every player --- every time he gets credit for the slightest event?
+
+Now, Python offers many different data structures besides `lists`, but these are the most versatile and easiest to begin implementing.
+
+<Headings.myH4>List Elements</Headings.myH4>
+
+A `list` may contain any data type, `string`, `integer`, `float`, `booleans`, whatever object type:
+
+```python
+warner_character_023 = ["Foghorn", "rooster", 55, 2.34, True]
+```
+
+You can even store functions in the list. (We may do that later.)
+
+This variety of data types gives the `list` even more flexibility than `arrays`, the typical default structure type in many other languages.
+
+Of course, every advantage comes with a disadvantage, but we'll leave that for much later.
+
+<Headings.myH4>A Sampling of List Methods and Operations</Headings.myH4>
+
+Remember some of the operations and functionality of `strings` --- retrieving by index value, slicing, concatenation. You can do all that with `lists`, and more. Because, unlike `strings`, `lists` are **mutable**. (But more on that later.)
+
+But, for now let's go back to the scores example:
+
+```python
+>>> scores = [100, 130, 10, 43, 560, 22, 0, 0, 92]
+>>> # get the last score:
+>>> last_score = scores[-1]
+>>> last_score
+92
+>>> # get the maximum
+>>> max(scores)
+560
+>>> # get the minimum
+>>> min(scores)
+0
+>>> # get the total
+>>> sum(scores)
+957
+>>> first_score = scores[0]
+>>> first_score
+100
+>>> # add another score
+>>> scores.append(33)
+>>> scores
+[100, 130, 10, 43, 560, 22, 0, 0, 92, 33]
+>>>
+>>> earlier_scores = [45, 230, 21]
+>>> # concatenation even
+>>> scores + earlier_scores
+[100, 130, 10, 43, 560, 22, 0, 0, 92, 33, 45, 230, 21]
+```
+
+<Headings.myH4>Back to Basics</Headings.myH4>
+
+To create (or `instantiate`) a list you can simply begin with square brackets:
+
+```python
+months = []
+```
+
+with the understanding that you'll be adding to this `list` later on using, at first at least, the `append` method used above.
+
+But you can begin with a population of items or a complete collection, e.g.:
+
+```python
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
+```
+
+Above we've noted that, just as with `strings`, you can select by index. You can also select by range, using the same notation used for a range of characters in a `string`:
+
+```python
+>>> first_qtr = months[0:3]
+>>> first_qtr
+['Jan', 'Feb', 'Mar']
+>>>
+>>> last_half = months[6:]
+>>> last_half
+['Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
+>>>
+```
+
+<Headings.myH4>Checking Membership in a List</Headings.myH4>
+
+One keyword we've not used is `in` and its companion keyword phrase `not in`. These return a `boolean` value revealing whether an element is in or not in a `list`:
+
+```python
+>>> 25 in scores
+False
+>>> 'Dec' in months
+True
+>>> 'Dec' not in months
+False
+```
+
+Like other attributes, `lists` share this functionality with `strings`:
+
+```python
+>>> "fish" in "The fish are biting"
+True
+>>>
+```
+
+<Headings.myH4>Mutability</Headings.myH4>
+
+_Mutability_ has been mentioned now a number of times in various contexts.
+
+An object is mutable if it can be changed after having been created.
+
+If an object can be changed (like a `list` can), then it is mutable. If, to change it, you need to create a whole new version of it (think `string` as a prime example), then it is immutable.
+
+```python
+numlist = [1, 2, 3, 4, 5]
+numlist[0] = 'one' # change the first element, replacing it with the string 'one'
+print(my_lst)
+# ['one', 2, 3, 4, 5]
+
+```
+
+Nothing of the sort can be accomplished with `strings`.
+
+<Headings.myH4>Exercise</Headings.myH4>
+
+<iframe
+  src="https://trinket.io/embed/python3/9f8777a21b"
+  width="100%"
+  height="356"
+  frameborder="0"
+  marginwidth="0"
+  marginheight="0"
+  allowfullscreen
+></iframe>
