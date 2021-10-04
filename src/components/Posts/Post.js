@@ -48,7 +48,8 @@ const Wrapper = styled.article`
     margin-bottom: 1rem;
     background: var(--clr-grey-10);
     padding: 0.25rem 0.5rem;
-    text-transform: uppercase;
+    /* trk */
+    /* text-transform: uppercase; */
     font-weight: 700;
     border-radius: var(--radius);
     letter-spacing: var(--spacing);

@@ -1,0 +1,81 @@
+---
+title: String Methods
+slug: string-methods-one
+image: ./images/main.jpg
+date: 2021-10-01
+author: alfred e. neuman
+category: string methods
+readTime: 5
+embeddedImages:
+  - ./images/string-methods.png
+---
+
+import { Link } from 'gatsby'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import {
+  Headings,
+  Code,
+  Video,
+  RegVideo,
+  Blockquote,
+  PrismSetup,
+} from '../../components/Complete'
+
+<Headings.myH4>The Many Methods of The String Class</Headings.myH4>
+
+Remember what happens when you print out the `type` of a `string`:
+
+```python
+>>> type("some string")
+<class 'str'>
+>>>
+```
+
+Note what is contained in those angle brackets, `<class 'str'>`.
+
+The term, _class_, is a keyword, and it basically means that `strings` are a type of object that comes with its own functions or, more properly, _methods_.  
+
+And, in the case of `strings` there are several [string methods in the Python library](https://docs.python.org/3/library/stdtypes.html#string-methods).
+
+In fact, if you perform the following:
+
+```python
+print(dir(str))
+```
+
+you will get a print out of all the methods (and helper functions) in the `string` class:
+
+<GatsbyImage
+  image={getImage(props.embeddedImages[0])}
+  title="string methods"
+  alt="Python's string methods from dir command"
+/>
+
+Some are more useful than others, and that very much depends on what you are attempting to achieve.  But a sampling here will be useful.
+
+<Headings.myH4>A Sampling of Methods</Headings.myH4>
+
+## str.capitalize()
+
+From the documentation:
+
+_Return a copy of the string with its __first__ character capitalized and the rest lowercased._
+
+```python 
+>>> "this is all lower case".capitalize()
+'This is all lower case'
+>>>
+```
+
+## str.center(width[, fillchar])
+
+_Return centered in a string of length width. Padding is done using the specified fillchar ... The original string is returned if width is less than or equal to `len(s)`._
+
+```python 
+
+
+```
+
+
+
+
