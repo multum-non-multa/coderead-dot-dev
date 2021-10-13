@@ -1,0 +1,73 @@
+---
+title: More On Lists
+slug: more-re-lists
+image: ./images/main.jpg
+date: 2021-10-13
+author: alfred e. neuman
+category: lists
+readTime: 5
+---
+
+import { Link } from 'gatsby'
+import {
+  Headings,
+  Code,
+  Video,
+  RegVideo,
+  Blockquote,
+  PrismSetup,
+} from '../../components/Complete'
+
+<Headings.myH4>List Attributes and Methods</Headings.myH4>
+
+Lists, because mutable and ordered, come with methods and attributes enabling the programmer to not merely create and read data elements, but also update and delete elements. The list can be both expanded and reduced, sorted, and iterated through.
+
+Create a list by enclosing a comma-separated list of elements in square brackets:
+
+```python
+# Creating  an empty list
+mylist = []
+
+# or populate elements upon creation
+x = [1, 2, 3]
+
+```
+
+Lists can contain any data type:
+
+```python
+x2 = [2, "two", 3.14159, False, None, [1, 2, 3], True, len(x)]
+```
+
+Adding (a.k.a., appending) to a list:
+
+```python
+
+mylist = [ ]
+
+# adding to list
+mylist.append(1)
+
+# now mylist is represented as [1]
+```
+
+Replacing an element:
+
+```python
+mylist2[0] = 'new element'
+
+# now mylist is represented as ['new element']
+# the prior element is replaced
+
+```
+
+Deleting an element:
+
+```python
+
+# before deletion
+scores = [2, 23, 62, 11]
+
+del scores[1]
+# after deletion scores = [2, 62, 11]
+```

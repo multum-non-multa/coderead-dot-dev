@@ -1,14 +1,17 @@
 ---
-title: Introduction to Lists in Python
+title: Introduction to Lists
 slug: lists-intro
 image: ./images/main.jpg
 date: 2021-10-03
 author: alfred e. neuman
 category: lists
 readTime: 5
+embeddedImages:
+  - ./images/indexed.jpg
 ---
 
 import { Link } from 'gatsby'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import {
   Headings,
   Code,
@@ -19,6 +22,42 @@ import {
 } from '../../components/Complete'
 
 <Headings.myH4>Lists and Keeping Track of Data</Headings.myH4>
+
+<Blockquote display="info">
+
+<p>
+  Consider a program that has to work with documents, keep track of users, log
+  the IP addresses that have accessed a server, or store the names and birth
+  dates of children in a school. In all of these cases, we’re storing many
+  pieces of information. We’ll want to display, search through, extend, and
+  modify this information.
+</p>
+<p>
+  These are such common tasks that every programming language supports
+  collections, data structures designed for handling such cases. Lists and
+  tuples are [two of] Python’s built-in collections ....
+</p>
+<p>
+  For example, a series of documents, users, or IP addresses would be best
+  stored in a list—because we have many objects of the same type. A record
+  containing someone’s name and birth date would be best stored in a tuple,
+  because the name and birth date are of different types ....
+</p>
+<p>
+  Because they’re mutable, lists support many more methods and operators ....
+  Lists ... can be extended, contracted, and modified, as well as searched,
+  sorted, and replaced.
+</p>
+
+<div>
+  <p style={{ fontSize: '1rem', marginBottom: '0px' }}>
+    Reuven Lerner, &nbsp;
+    <span style={{ fontWeight: 'bold', fontSize: '1rem' }}>Python Workout</span>
+  </p>
+  <p style={{ fontSize: '1rem' }}>Manning Publications, Inc. &copy; 2020</p>
+</div>
+
+</Blockquote>
 
 Consider a game for which keeping track of scores is important, i.e., when you must know more than just the last value. Rather, you must know the player's history of points earned and in what order.
 
@@ -38,9 +77,9 @@ print(scores)
 
 ```
 
-Were it not for the `list` data structure, you might have to create a variable for every score, an impossibility when dealing with a program that is supposed run without your having to intervene or anticipate every possible score. What if you have over a hundred scores for every player?
+Were it not for the `list` data structure, you might have to create a variable for every score, an impossibility when dealing with a program that is supposed run without your having to intervene or anticipate every possible score. What if you have over a hundred scores for every player? More, you may have to keep them in order.
 
-Now, Python offers many different data structures besides `lists`, but these are the most versatile and easiest to begin implementing.
+Now, Python offers different data structures besides `lists`, but these are the most versatile and easiest to begin implementing.
 
 <Headings.myH4>List Elements</Headings.myH4>
 
@@ -50,17 +89,29 @@ A `list` may contain any data type, `string`, `integer`, `float`, `booleans`, wh
 warner_character_023 = ["Foghorn", "rooster", 55, 2.34, True]
 ```
 
-You can even store functions in the list. (We may do that later.)
+You can even store functions in the list.
 
 This variety of data types gives the `list` even more flexibility than `arrays`, the typical default structure type in many other languages.
 
-Of course, every advantage comes with a disadvantage, but we'll leave that for much later.
+Of course, every advantage comes with a disadvantage, but more on that later.
+
+<Headings.myH4>Lists Are Ordered</Headings.myH4>
+
+Some data structures (e.g., dictionaries) may return your data in any order. However, lists maintain the data in order.
+
+<GatsbyImage
+  image={getImage(props.embeddedImages[0])}
+  title="indexed"
+  alt="indexed"
+/>
+
+That means that each data element in the list has an index value, just as is the case with characters in a string. Thus, you can find and even change data elements by their index value.
 
 <Headings.myH4>A Sampling of List Methods and Operations</Headings.myH4>
 
-Remember some of the operations and functionality of `strings` --- retrieving by index value, slicing, concatenation. You can do all that with `lists`, and more. Because, unlike `strings`, `lists` are **mutable**. (But more on that later.)
+Remember some of the operations and functionality of `strings` --- retrieving by index value, slicing, concatenation. You can do all that with `lists`, and more. Because, unlike `strings`, `lists` are **mutable**.
 
-But, for now let's go back to the scores example:
+Returning to the scoring example:
 
 ```python
 >>> scores = [100, 130, 10, 43, 560, 22, 0, 0, 92]
