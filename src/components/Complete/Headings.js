@@ -37,4 +37,12 @@ const myH4 = props => {
   )
 }
 
-export { myH2, myH4 }
+const myH5 = props => {
+  return (
+    <h4 style={{ margin: '1.2rem 0', color: 'var(--clr-primary-3)', textTransform: 'lowercase', fontSize: '1.2rem' }}>
+      {props.children}
+    </h4>
+  )
+}
+
+export { myH2, myH4, myH5 }

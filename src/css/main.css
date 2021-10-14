@@ -101,6 +101,15 @@ h4 {
   margin-bottom: 0.75rem;
   font-family: var(--ff-primary);
 }
+
+/* multum non multa */
+h5 {
+  letter-spacing: var(--spacing);
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  font-family: var(--ff-primary);
+}
+
 h1 {
   font-size: 3rem;
 }
@@ -113,6 +122,13 @@ h3 {
 h4 {
   font-size: 0.875rem;
 }
+
+/* multum */
+h5 {
+  font-size: 1rem;
+}
+
+
 p {
   margin-bottom: 1.25rem;
   font-size: 1.25rem;

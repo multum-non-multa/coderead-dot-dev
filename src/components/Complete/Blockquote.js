@@ -92,7 +92,7 @@ const Wrapper = styled.blockquote`
     }
     font-style: italic;
     color: var(--clr-grey-5);
-    line-height: 1.8;
+    line-height: 1.4;
     word-spacing: 3px;
     font-size: 1.2rem;
     margin: 2rem 0;
