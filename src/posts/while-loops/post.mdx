@@ -1,0 +1,66 @@
+---
+title: In a While
+slug: while-loops
+image: ./images/main.jpg
+date: 2021-10-15
+author: winston smith
+category: loops
+readTime: 5
+---
+
+The marvel of computation is its seeming inexhaustibility.  
+
+Programs --- the ones we depend on with effortless expectation --- run without ceasing.
+
+You may be frozen in your thinking, imagining only the programs you've written so far with their need for user input or their duration capping out at all of about 1.234 nano seconds.
+
+That's the not necessarily the most common program.  
+
+Many programs run without pause.  
+
+Think of the myriad mechanisms upon which you depend. 
+
+To take but one example, Google's Nest security system, the one with cameras and integration with exterior cameras and thermostats and the machine learning algorithm that allows the police to know whether you're watching the wrong NFL team --- those run in a constant loop.  
+
+They do not end.  (Well, unless you lose power, hit the reset button, or have your Uncle Sam re-wire the garbage disposal.) 
+
+How does that work? 
+
+One word:  infinite while loops.  (Ok, three.)  
+
+Still, for most programs you'll write, the while loop will not be infinite.  Nonetheless, the duration of the loop (in other words, its number of iterations) will often be indeterminable.  
+
+That is, you will not know how often you need to run it.  
+
+Consider when you might import data from an external server or a website. 
+
+The pseudo-code might appear as:
+
+```python 
+data = get_data('https://some-url.tdl')
+
+while data:
+    # do such and such
+    # do something else
+    # check the time
+    # let someone know the status at that time
+    # and what was done
+    # ...
+
+# do this ...
+# do that ...
+
+```
+
+Only when you've exhausted that data will you be finished.  But what is that data.
+
+__You will not know what it necessarily consists of at any given time.__  
+
+__Do. not. think. you. will.__  
+
+
+The only programs that survive are those that are written for any expectation --- data type, length, duration, input, etc.  
+
+
+
+
