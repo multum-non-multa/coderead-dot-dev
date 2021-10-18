@@ -82,7 +82,8 @@ export const query = graphql`
 
 const Wrapper = styled.section`
   width: 85vw;
-  max-width: 1100px;
+  /* max-width: 1100px; */
+  max-width: 1000px;
   margin: 0 auto;
   margin-bottom: 4rem;
 

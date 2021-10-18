@@ -6,7 +6,21 @@ date: 2021-10-15
 author: winston smith
 category: loops
 readTime: 5
+embeddedImages:
+  - ./images/guess.png
 ---
+
+import { Link } from 'gatsby'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import {
+  Headings,
+  Code,
+  Video,
+  RegVideo,
+  Blockquote,
+  PrismSetup,
+} from '../../components/Complete'
+
 
 The marvel of computation is its seeming inexhaustibility.  
 
@@ -37,7 +51,7 @@ Consider when you might import data from an external server or a website.
 The pseudo-code might appear as:
 
 ```python 
-data = get_data('https://some-url.tdl')
+data = retrieve_data('https://some-url.tdl')
 
 while data:
     # do such and such
@@ -61,6 +75,24 @@ __Do. not. think. you. will.__
 
 The only programs that survive are those that are written for any expectation --- data type, length, duration, input, etc.  
 
+
+<Headings.myH4>Syntax</Headings.myH4>
+
+
+```python 
+while <condition>:
+  <do something>
+
+```
+
+
+
+
+<GatsbyImage
+    image={getImage(props.embeddedImages[0])}
+    title="guessing game"
+    alt="while loop of guessing game"
+/>
 
 
 
