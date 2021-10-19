@@ -1,0 +1,652 @@
+---
+title: Cheat Sheet I
+slug: cheat-sheet-one
+image: ./images/main.jpg
+date: 2021-10-18
+author: winston smith
+category: cheat sheets
+readTime: 5
+---
+
+import { Link } from 'gatsby'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import {
+  Headings,
+  Code,
+  Video,
+  RegVideo,
+  Blockquote,
+  PrismSetup,
+} from '../../components/Complete'
+
+Cheat sheets should a standard part of your approach to programming. You cannot remember it all, but you should have some recollection of the possible ways to manipulate data and handle data types.
+
+<Headings.myH4>Arithmetic Operators</Headings.myH4>
+
+<Headings.myH5>from highest to lowest precedence</Headings.myH5>
+
+---
+
+| Operators | Operation        | Example         |
+| --------- | ---------------- | --------------- |
+| \*\*      | Exponent         | `2 ** 3 = 8`    |
+| %         | Modulus/Remaider | `22 % 8 = 6`    |
+| //        | Integer division | `22 // 8 = 2`   |
+| /         | Division         | `22 / 8 = 2.75` |
+| \*        | Multiplication   | `3 * 3 = 9`     |
+| -         | Subtraction      | `5 - 2 = 3`     |
+| +         | Addition         | `2 + 2 = 4`     |
+|           |                  |                 |
+
+---
+
+<Headings.myH5>Examples</Headings.myH5>
+
+```python
+>>> 2 + 3 * 6
+20
+```
+
+```python
+# use parentheses instead of order of operation
+>>> (2 + 3) * 6
+30
+
+```
+
+```python
+>>> 2 ** 8
+256
+```
+
+```python
+>>> 23 // 7
+3
+```
+
+```python
+>>> 23 % 7
+2
+```
+
+```python
+>>> (5 - 1) * ((7 + 1) / (3 - 1))
+16.0
+```
+
+<Headings.myH4>Data Types</Headings.myH4>
+
+---
+
+| Type    | Examples                                  |
+| ------- | ----------------------------------------- |
+| Integer | `-2, -1, 0, 1, 2, 3, 4, 5`                |
+| Float   | `-1.25, -1.0, --0.5, 0.0, 0.5, 1.0, 1.25` |
+| String  | `'a', 'aa', 'aaa', 'Hello!', '11 cats'`   |
+| Boolean | `True`, `False`                           |
+
+---
+
+<Headings.myH4>String Concatenation and Replication</Headings.myH4>
+
+```python
+>>> 'Alice' + 'Bob'
+'AliceBob'
+# or avoid altogether
+>>> 'Alice' 'Bob'
+'AliceBob'
+>>> 'Alice' * 5
+'AliceAliceAliceAliceAlice'
+```
+
+<Headings.myH4>Variables</Headings.myH4>
+
+You can name a variable anything as long as it obeys the following three rules:
+
+- It can be only one word.
+
+- It can use only letters, numbers, and the underscore (`_`) character.
+
+- It can’t begin with a number.
+
+<br />
+
+Examples
+
+```python
+spam = 'Hello'
+
+_spam = 'Hello'
+
+spam2 = 'World'
+```
+
+### Comments
+
+Inline comment:
+
+```python
+# This is a comment
+```
+
+Multiline comment:
+
+```Python
+# This is a
+# multiline comment
+
+'''
+or use triple
+quotes for multiline
+comments
+'''
+```
+
+Code with a comment:
+
+```python
+a = 1  # initialization
+```
+
+### The print Function
+
+```python
+>>> print('Hello world!')
+Hello world!
+>>> a = 1
+# comma separate printed elements
+>>> print('Hello world!', a)
+Hello world! 1
+```
+
+### The input Function
+
+Example Code:
+
+```python
+
+myName = input('Enter your name? ')   # requires user input
+# print using f-string with variable embedded
+print(f'Glad to meet you, {myName}')
+```
+
+### The len() Function
+
+Evaluates to the integer value of the number of characters in a string:
+
+```python
+>>> len('hello')
+5
+```
+
+Note: test of emptiness of strings, lists, dictionary, etc, should **not** use len, but prefer direct
+boolean evaluation.
+
+```python
+a = [1, 2, 3]
+if a:
+    print("the list is not empty!")
+```
+
+### Type conversion with str, int, and float functions
+
+```python
+>>> str(29)
+'29'
+>>> str(-3.14)
+'-3.14'
+>>> int(7.7)
+7
+>>> int(7.7) + 1
+8
+>>> float(23)
+23.0
+>>> float("3.1459")
+3.1459
+```
+
+## Flow Control
+
+### Comparison Operators
+
+| Operator | Meaning                  |
+| -------- | ------------------------ |
+| `==`     | Equal to                 |
+| `!=`     | Not equal to             |
+| `<`      | Less than                |
+| `>`      | Greater Than             |
+| `<=`     | Less than or Equal to    |
+| `>=`     | Greater than or Equal to |
+
+These operators evaluate to True or False depending on the values you give them.
+
+Examples:
+
+```python
+>>> 42 == 42
+True
+>>> 40 == 42
+False
+>>> 'hello' == 'hello'
+True
+>>> 'hello' == 'Hello'
+False
+>>> 'dog' != 'cat'
+True
+>>> 42 == 42.0
+True
+>>> 42 == '42'
+False
+
+```
+
+### Boolean evaluation
+
+Never use `==` or `!=` operator to evaluate boolean operation. Use the `is` or `is not` operators,
+or use implicit boolean evaluation.
+
+Do not do this even though valid Python:
+
+```python
+>>> True == True
+True
+>>> True != False
+True
+```
+
+Rather:
+
+```python
+>>> True is True
+True
+>>> True is not False
+True
+```
+
+These statements are equivalent:
+
+```Python
+if a is True:
+   pass
+if a is not False:
+   pass
+if a:
+   pass
+```
+
+And these as well:
+
+```Python
+if a is False:
+   pass
+if a is not True:
+   pass
+if not a:
+   pass
+```
+
+### Boolean Logical Operators
+
+There are three Boolean operators: `and`, `or`, and `not`.
+
+The _and_ Operator’s _Truth_ Table:
+
+| Expression      | Evaluates to |
+| --------------- | ------------ |
+| True and True   | True         |
+| True and False  | False        |
+| False and True  | False        |
+| False and False | False        |
+
+The _or_ Operator’s _Truth_ Table:
+
+| Expression     | Evaluates to |
+| -------------- | ------------ |
+| True or True   | True         |
+| True or False  | True         |
+| False or True  | True         |
+| False or False | False        |
+
+The _not_ Operator’s _Truth_ Table:
+
+| Expression | Evaluates to |
+| ---------- | ------------ |
+| not True   | False        |
+| not False  | True         |
+
+### Mixing Boolean Logical and Comparison Operators
+
+```python
+>>> (4 < 5) and (5 < 6)
+True
+>>> (4 < 5) and (9 < 6)
+False
+>>> (1 == 2) or (2 == 2)
+True
+```
+
+You can also use multiple Boolean operators in an expression, along with the comparison operators:
+
+```python
+>>> 2 + 2 == 4 and not 2 + 2 == 5 and 2 * 2 == 2 + 2
+True
+```
+
+### if Statements
+
+```python
+if name == 'Alice':
+    print('Hi, Alice.')
+```
+
+### else Statements
+
+```python
+name = 'Bob'
+
+if name == 'Alice':
+    print('Hi, Alice.')
+else:
+    print('Hello, stranger.')
+```
+
+### elif Statements
+
+```python
+name = 'Bob'
+age = 5
+
+if name == 'Alice':
+    print('Hi, Alice.')
+elif age < 12:
+    print('You are not Alice.')
+```
+
+```python
+name = 'Bob'
+age = 30
+
+if name == 'Alice':
+    print('Hi, Alice.')
+elif age < 12:
+    print('You are not Alice, kiddo.')
+else:
+    print('You are neither Alice nor a little kid.')
+```
+
+### while Loop Statements
+
+```python
+spam = 0
+
+while spam < 5:
+    print('Hello, world.')
+    spam = spam + 1
+```
+
+### break Statements
+
+If the execution reaches a break statement, it immediately exits the while loop’s clause:
+
+```python
+while True:
+    print('Please type your name.')
+    name = input()
+    if name == 'your name':
+        break
+
+print('Thank you!')
+```
+
+### continue Statements
+
+When the program execution reaches a continue statement, the program execution immediately jumps back to the start of the loop.
+
+```python
+while True:
+    print('Who are you?')
+    name = input()
+    if name != 'Joe':
+        continue
+    print('Hello, Joe. What is the password? (It is a fish.)')
+    password = input()
+    if password == 'swordfish':
+        break
+
+print('Access granted.')
+```
+
+### for Loops and the range() Function
+
+```python
+>>> for i in range(5):
+...     print(f'Jimmy Five Times {i}')
+...
+Jimmy Five Times 0
+Jimmy Five Times 1
+Jimmy Five Times 2
+Jimmy Five Times 3
+Jimmy Five Times 4
+```
+
+The _range()_ function can also be called with three arguments. The first two arguments will be the start and stop values, and the third will be the step argument. The step is the amount that the variable is increased by after each iteration.
+
+```python
+for i in range(0, 10, 2):
+   print(i)
+```
+
+You can even use a negative number for the step argument to make the for loop count down instead of up.
+
+```python
+for i in range(5, -1, -1):
+    print(i)
+```
+
+### For else statement
+
+This allows to specify a statement to execute in case of the full loop has been executed. Only
+useful when a `break` condition can occur in the loop:
+
+```python
+for i in [1, 2, 3, 4, 5]:
+   if i == 3:
+       break
+else:
+   print("only executed when no item of the list is equal to 3")
+```
+
+### Importing Modules
+
+```python
+import random
+
+for i in range(5):
+    print(random.randint(1, 10))
+```
+
+```python
+import random, sys, os, math
+```
+
+```python
+from random import *.
+```
+
+### Ending a Program with sys.exit
+
+```python
+import sys
+
+while True:
+    print('Type exit to exit.')
+    response = input()
+    if response == 'exit':
+        sys.exit()
+    print('You typed {}.'.format(response))
+```
+
+## Functions
+
+```python
+def hello(name):
+    print('Hello {}'.format(name))
+```
+
+### Return Values and return Statements
+
+When creating a function using the def statement, you can specify what the return value should be with a return statement. A return statement consists of the following:
+
+- The return keyword.
+
+- The value or expression that the function should return.
+
+```python
+import random
+def getAnswer(answerNumber):
+    if answerNumber == 1:
+        return 'It is certain'
+    elif answerNumber == 2:
+        return 'It is decidedly so'
+    elif answerNumber == 3:
+        return 'Yes'
+    elif answerNumber == 4:
+        return 'Reply hazy try again'
+    elif answerNumber == 5:
+        return 'Ask again later'
+    elif answerNumber == 6:
+        return 'Concentrate and ask again'
+    elif answerNumber == 7:
+        return 'My reply is no'
+    elif answerNumber == 8:
+        return 'Outlook not so good'
+    elif answerNumber == 9:
+        return 'Very doubtful'
+
+r = random.randint(1, 9)
+fortune = getAnswer(r)
+print(fortune)
+```
+
+### The None Value
+
+```python
+spam = print('Hello!')
+spam is None
+```
+
+Note: never compare to `None` with the `==` operator. Always use `is`.
+
+---
+
+## Lists
+
+---
+
+```python
+['cat', 'bat', 'rat', 'elephant']
+```
+
+### Getting Individual Values in a List with Indexes
+
+```python
+>>> spam = ['cat', 'bat', 'rat', 'elephant']
+>>> spam[0]
+'cat'
+>>> spam[1]
+'bat'
+>>> spam[2]
+'rat'
+>>> spam[3]
+'elephant'
+```
+
+### Negative Indexes
+
+```python
+>>> spam = ['cat', 'bat', 'rat', 'elephant']
+>>> spam[-1]
+'elephant'
+>>> spam[-3]
+'bat'
+>>> f'The {spam[-1]} is afraid of the {spam[-3]}.'
+'The elephant is afraid of the bat.'
+
+```
+
+### Getting Sublists with Slices
+
+```python
+>>> spam = ['cat', 'bat', 'rat', 'elephant']
+>>> spam[0:4]
+['cat', 'bat', 'rat', 'elephant']
+>>> spam[1:3]
+['bat', 'rat']
+>>> spam[0:-1]
+['cat', 'bat', 'rat']
+>>> spam = ['cat', 'bat', 'rat', 'elephant']
+>>> spam[:2]
+['cat', 'bat']
+>>> spam[1:]
+['bat', 'rat', 'elephant']
+>>> spam[:]
+['cat', 'bat', 'rat', 'elephant']
+```
+
+### Getting a list Length with len
+
+```python
+>>> spam = ['cat', 'dog', 'moose']
+>>> len(spam)
+3
+```
+
+### Changing Values in a List with Indexes
+
+```python
+>>> spam = ['cat', 'bat', 'rat', 'elephant']
+>>> spam[1] = 'aardvark'
+>>> spam
+['cat', 'aardvark', 'rat', 'elephant']
+>>> spam[2] = spam[1]
+>>> spam
+['cat', 'aardvark', 'aardvark', 'elephant']
+>>> spam[-1] = 12345
+>>> spam
+['cat', 'aardvark', 'aardvark', 12345]
+```
+
+### List Concatenation and List Replication
+
+```python
+>>> [1, 2, 3] + ['A', 'B', 'C']
+[1, 2, 3, 'A', 'B', 'C']
+>>> ['X', 'Y', 'Z'] * 3
+['X', 'Y', 'Z', 'X', 'Y', 'Z', 'X', 'Y', 'Z']
+>>> spam = [1, 2, 3]
+>>> spam = spam + ['A', 'B', 'C']
+>>> spam
+[1, 2, 3, 'A', 'B', 'C']
+```
+
+### Removing Values from Lists with del Statements
+
+```python
+spam = ['cat', 'bat', 'rat', 'elephant']
+del spam[2]
+spam
+```
+
+```python
+del spam[2]
+spam
+```
+
+### Using for Loops with Lists
+
+```python
+supplies = ['pens', 'staplers', 'flame-throwers', 'binders']
+
+for i, supply in enumerate(supplies):
+    print('Index {} in supplies is: {}'.format(str(i), supply))
+```
