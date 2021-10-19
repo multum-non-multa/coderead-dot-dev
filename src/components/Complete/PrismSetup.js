@@ -5,7 +5,11 @@ import styled from 'styled-components'
 
 const PrismWrapper = props => {
   const className = props.children.props.className
-  const language = className.split('-')[1]
+  // const language = className.split('-')[1]
+  // put question mark check because
+  // throws error if have a listing of images in frontmatter
+  // but haven't yet embedded in page yet
+  const language = className?.split('-')[1]
 
   return (
     <Highlight

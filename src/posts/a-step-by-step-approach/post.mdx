@@ -1,0 +1,137 @@
+---
+title: 'K.I.S.S.'
+slug: a-step-by-step-approach
+image: ./images/main.jpg
+date: 2021-10-08
+author: alfred e. neuman
+category: design
+readTime: 5
+embeddedImages:
+  - ./images/mona-lisa.jpg
+  - ./images/flow-chart.png
+---
+
+import { Link } from 'gatsby'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import {
+  Headings,
+  Code,
+  Video,
+  RegVideo,
+  Blockquote,
+  PrismSetup,
+} from '../../components/Complete'
+
+<Headings.myH4>Begin at the End</Headings.myH4>
+
+- have a fairly good understanding of
+
+what you want to accomplish
+
+<Headings.myH4>Do NOT start to code</Headings.myH4>
+
+everyone has the common urge to just start coding
+
+think about when you have to find 300 or
+600 words to describe the rise and fall
+of the East Widgeterian Mocha Makers.
+
+You know precious little about
+them and don't really care.
+
+But you want to get words on a page and get it finished. On to a wiki page.
+
+That is, before you put words on a piece of paper,
+you should have them in your mind,
+with understanding and some clear outline of what you want to say.
+
+In many ways, coding is the same.
+
+- depending on the size of the code you need to write and your familiarity with it, that may just be fine
+
+- but lacking a good grounding in that, it is best to plot out your road map first
+
+- otherwise, you end up with spaghetti code
+
+- and refactoring and repairing may end up a bigger problem than just starting from scratch
+
+<Headings.myH4>One, and only one, step at a time</Headings.myH4>
+
+<GatsbyImage
+  image={getImage(props.embeddedImages[0])}
+  title="mona lisa"
+  alt="mona lisa"
+/>
+
+In sketching out your plan, begin with a skeleton
+
+The analogy of sketching a human figure or landscape holds well here.
+
+Unless you are adept at sketching the human body,
+best to get the outline down first
+--- or perhaps just the stick figure.
+
+That is, before getting into details, make sure you've got the frame firmly in place.
+
+Being human, your mind will start to construct in concept all the details you'd like to see, but with the typical mind's eye, i.e., blind to the nitty gritty implementation details.
+
+For example, you may want to create a game in which the user shoots rats. (A good and noble profession.)
+
+Perhaps you've got an outline of how that would work at a very basic level.
+
+Then your creative side gets the better of you: images, sounds, various rat types and point scales, and on and on.
+
+Then, with all those premium features in mind, you do start to code. Before long, you're overwhelmed with the complexity.
+
+<Headings.myH4>Don't Code, Pseudo Code</Headings.myH4>
+
+Even when you have a pretty good idea, most developers, as they begin to chart what is uncharted waters to them, begin with psedo-code, i.e., just plain English (or Spanish or Mandarin) phrases and todo statements:
+
+```python
+
+# import random integer library
+
+# create a variable for player
+
+# 'deal' two cards to player
+
+# give player a choice
+
+# if he chooses x,
+# then do y
+
+# if he chooses anything else
+# then return him to start
+
+
+```
+
+<Headings.myH4>Draw it out</Headings.myH4>
+
+<GatsbyImage
+  image={getImage(props.embeddedImages[1])}
+  title="flow chart"
+  alt="flow chart"
+/>
+
+<Headings.myH4>Test Your Code as You Go</Headings.myH4>
+
+Basic testing is simple: print out a result, run your program, whatever --- just to see if you see what is going on the way you expect.
+
+Do this iteratively --- i.e., as you add a feature. For example, a conditional statement.
+
+```python
+
+if such_and_such == True:
+    print("This is working")
+```
+
+<Headings.myH4>Just get it to work</Headings.myH4>
+
+Do not try to simplify too much
+
+<Headings.myH4>More to come ...</Headings.myH4>
+
+Later on you'll look to reduce repeat code, tighten up the logic, and make it more modular. When you begin to use functions, you'll see how that can simplify your code.
+
+Here we'll just try to implement the blackjack game without loops, then with.
