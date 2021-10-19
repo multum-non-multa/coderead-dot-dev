@@ -21,78 +21,150 @@ import {
   PrismSetup,
 } from '../../components/Complete'
 
-
-The marvel of computation is its seeming inexhaustibility.  
+The marvel of computation is its seeming inexhaustibility.
 
 Programs --- the ones we depend on with effortless expectation --- run without ceasing.
 
-You may be frozen in your thinking, imagining only the programs you've written so far with their need for user input or their duration capping out at all of about 1.234 nano seconds.
+You may be frozen in your thinking, imagining only the programs you've written so far with their need for user input or their duration capping out at all of about 0.034 nano seconds. But that's not common. Many programs run without pause.
 
-That's the not necessarily the most common program.  
+To take but one example, Google's Nest security system, the one with cameras and integration with exterior cameras and thermostats and the machine learning algorithm that allows the police to know whether you're watching the wrong NFL team --- those run in a constant loop. They do not end. (Well, unless you lose power or hit the reset button.)
 
-Many programs run without pause.  
+How does that work? Infinite `while` loops.
 
-Think of the myriad mechanisms upon which you depend. 
+Still, for most programs you'll write, the `while` loop will **_not_** be infinite. Nonetheless, the duration of the loop (in other words, its number of iterations) will often be indeterminable.
 
-To take but one example, Google's Nest security system, the one with cameras and integration with exterior cameras and thermostats and the machine learning algorithm that allows the police to know whether you're watching the wrong NFL team --- those run in a constant loop.  
+That is, you will not know how often you need to run it. (Next round we'll discuss `for` loops for when you do know the number of iterations.)
 
-They do not end.  (Well, unless you lose power, hit the reset button, or have your Uncle Sam re-wire the garbage disposal.) 
-
-How does that work? 
-
-One word:  infinite while loops.  (Ok, three.)  
-
-Still, for most programs you'll write, the while loop will not be infinite.  Nonetheless, the duration of the loop (in other words, its number of iterations) will often be indeterminable.  
-
-That is, you will not know how often you need to run it.  
-
-Consider when you might import data from an external server or a website. 
+Consider when you might import data from an external server or a website.
 
 The pseudo-code might appear as:
 
-```python 
-data = retrieve_data('https://some-url.tdl')
+```python
+data = retrieve_data('https://data_from_internet')
 
 while data:
     # do such and such
     # do something else
-    # check the time
-    # let someone know the status at that time
-    # and what was done
+    # send status of program to another server
     # ...
+# out of loop
 
-# do this ...
-# do that ...
+# continue with program
 
 ```
 
-Only when you've exhausted that data will you be finished.  But what is that data.
+Only when you've exhausted that data will you be finished.
 
-__You will not know what it necessarily consists of at any given time.__  
+But what is that data?
 
-__Do. not. think. you. will.__  
+**You will not know what it necessarily consists of at any given time.** And you should not think you will.
 
+Rather, the only programs that survive are those that are written to expect a range of changes every time they run or process data --- type, length, duration, input. Whatever.
 
-The only programs that survive are those that are written for any expectation --- data type, length, duration, input, etc.  
+<Headings.myH4>Syntax of while loop</Headings.myH4>
 
-
-<Headings.myH4>Syntax</Headings.myH4>
-
-
-```python 
+```python
 while <condition>:
   <do something>
 
 ```
 
+<Headings.myH4>Examples</Headings.myH4>
 
+The `while` loop is executed as long as the condition is `True`. For example:
 
+```python
+u, v, x, y = 0, 0, 100, 30
+while x > y:
+  u = u + y
+  x = x - y
+  if x < y + 2:
+    v = v + x
+    x = 0
+  else:
+    v = v + y + 2
+    x = x - y - 2
 
-<GatsbyImage
-    image={getImage(props.embeddedImages[0])}
-    title="guessing game"
-    alt="while loop of guessing game"
-/>
+print(u, v)
+```
 
+Try it out:
 
+<iframe
+  src="https://trinket.io/embed/python3/fd6b5097ab?runOption=run&start=result&showInstructions=true"
+  width="100%"
+  height="356"
+  frameborder="0"
+  marginwidth="0"
+  marginheight="0"
+  allowfullscreen
+></iframe>
 
+Cf. **The Quick Python Book**, pp. 28-9.
+
+---
+
+<Headings.myH4>Elements</Headings.myH4>
+
+Whenever you create a `while` loop, you must determine what, if anything, will cause the loop to break out.
+
+By way of example, say you want to iterate through a string to determine how many vowels it contains:
+
+```python
+vowels = ['a', 'e', 'i', 'o', 'u']
+
+twelfth_night = '''
+This fellow is wise enough to play the fool;
+And to do that well craves a kind of wit:
+He must observe their mood on whom he jests,
+The quality of persons, and the time,
+And, like the haggard, check at every feather
+That comes before his eye. This is a practise
+As full of labour as a wise man's art
+For folly that he wisely shows is fit;
+But wise men, folly-fall'n, quite taint their wit.
+'''
+
+count = 0
+num_vowels = 0
+
+while count < len(twelfth_night):
+    chr = twelfth_night[count]
+    if chr in vowels:
+        num_vowels += 1
+    count += 1
+print(num_vowels)
+```
+
+Here the **sentinel** variable is `count`. If you want to iterate over every character in the string, you use `count` to act as both the index value **_and_** keep track of the end of the string by matching it to the length of the string.
+
+Often, but not necessarily, without a sentinel value, you end up in an infinite loop --- not often what you want.
+
+Sometimes, you'll use the keyword `break` to get out when you find what you want:
+
+```python
+while count < len(twelfth_night):
+    chr = twelfth_night[count]
+    if chr == 'x':
+      break  # keyword that breaks loop
+    count += 1
+
+```
+
+One final example: a game of blackjack in which the dealer must take a card if his hand, at time of player's stand, is below 17:
+
+```python
+from random import randint
+
+dealer_hand = []
+dealer_hand.append(randint(2,11))
+dealer_hand.append(randint(2,11))
+
+while sum(dealer_hand) < 17:
+    dealer_hand.append(randint(2,11))
+
+print(sum(dealer_hand))
+
+```
+
+Next: `for` loops.
