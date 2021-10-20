@@ -1,11 +1,13 @@
 ---
 title: For Loops
 slug: for-loops
-image: ./images/main.jpg
+image: ./images/main.png
 date: 2021-10-19
 author: winston smith
 category: loops
 readTime: 5
+embeddedImages:
+  - ./images/diagram.png
 ---
 
 import { Link } from 'gatsby'
@@ -29,7 +31,7 @@ scores = [23, 145, 89, 9, -12]
 
 ```
 
-But you want to go through the list and examine each score in the list.  The reasons for wanting to do so are legion.  You want to multiply each score, subtract out the minimum and maximum, determine an average or standard deviation.  
+But you want to go through the list and examine each score in the list. The reasons for wanting to do so are legion. You want to multiply each score, subtract out the minimum and maximum, determine an average or standard deviation.
 
 You may want to merely print them all out.
 
@@ -40,13 +42,13 @@ for score in scores:
   # do something with each score
 ```
 
-Unlike the `while` loop, you need not plant a sentinel value in, i.e., a counter that tells you when you've finished the loop.  The `for` loop runs only until the end of the iterable, whether a `string` or `list` or whatever other `iterable` you are dealing with.  
+Unlike the `while` loop, you need not plant a sentinel value in, i.e., a counter that tells you when you've finished the loop. The `for` loop runs only until the end of the iterable, whether a `string` or `list` or whatever other `iterable` you are dealing with.
 
 You can also merely use the loop to perform a set number of operations independent of the size or even presence of a list.
 
 The `for` loop is executed throughout the length of the `iterable`:
 
-```python 
+```python
 >>> main_food_groups = ["candy", "candy canes", "candy corn", "syrup"]
 >>> for group in main_food_groups:
 ...     print(group)
@@ -57,11 +59,17 @@ candy corn
 syrup
 ```
 
+<GatsbyImage
+  image={getImage(props.embeddedImages[0])}
+  title="diagram of for loop"
+  alt="for loop in python"
+/>
+
 <Headings.myH4>Example</Headings.myH4>
 
-Whenever you create a `while` loop, you must determine what, if anything, will cause the loop to break out.  No so with the `for`.  
+Whenever you create a `while` loop, you must determine what, if anything, will cause the loop to break out. No so with the `for`.
 
-In an example under the `while` loop, we iterated through a string to determine how many vowels it contains.  We can do that same a bit easier with the `for` loop:
+In an example under the `while` loop, we iterated through a string to determine how many vowels it contains. We can do that same a bit easier with the `for` loop:
 
 ```python
 vowels = ['a', 'e', 'i', 'o', 'u']
@@ -85,60 +93,23 @@ for chr in twelfth_night:
         num_vowels += 1
 ```
 
-The **sentinel** variable `count` was eliminated and the code was tightened up a bit. 
+The **sentinel** variable `count` was eliminated and the code was tightened up a bit.
 
 Just as with `while` you use the keyword `break` to get out when you find what you want:
 
 ```python
 for chr in twelfth_night:
     if chr == 'x':
-      break 
+      break
     else:
       # whatever else might be
 ```
 
-
 <Headings.myH4>Range & Enumerate</Headings.myH4>
 
-Sometimes you merely want to repeat a process not necessarily with regard to any iterable.  You can use the range function for that. 
+Sometimes you merely want to repeat a process not necessarily with regard to any iterable. You can use the range function for that.
 
 ```python
 
 
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
