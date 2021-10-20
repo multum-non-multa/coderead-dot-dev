@@ -107,9 +107,21 @@ for chr in twelfth_night:
 
 <Headings.myH4>Range & Enumerate</Headings.myH4>
 
-Sometimes you merely want to repeat a process not necessarily with regard to any iterable. You can use the range function for that.
+
+<Blockquote display='default'>
+
+<h5>From "The Quick Python Book"</h5>
+
+Sometimes, you need to loop with explicit indices (such as the positions at which values occur in a list). You can use the <Code>range</Code> command together with the <Code>len</Code> command on the list to generate a sequence of indices for use by the for loop. This code prints out all the positions in a list where it finds negative numbers:
+
+</Blockquote>
 
 ```python
+x = [1, 3, -7, 4, 9, -5, 4]
 
+for i in range(len(x)):
+  if x[i] < 0:
+    print("Found a negative number at index ", i)
 
 ```
+
