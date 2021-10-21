@@ -36,8 +36,11 @@ But you want to go through the list and examine each score in the list. The reas
 <Headings.myH4>Syntax</Headings.myH4>
 
 ```python
+total = 0
 for score in scores:
-  # do something with each score
+  total += score
+
+average = total / len(score)
 ```
 
 Unlike the `while` loop:
@@ -54,19 +57,15 @@ You need <em>not always</em> use a counter in a `while` loop but it occurs often
 
 The `for` loop runs only until the end of the iterable, whether a `string` or `list` or whatever other `iterable` you are dealing with.
 
-You can also merely use the loop to perform a set number of operations independent of the size or even presence of a list.
+You can also merely use the loop to perform a set number of operations independent of the size or even presence of an iterable.
 
-The `for` loop is executed throughout the length of the `iterable`:
+The `for` loop is executed throughout the length of the `iterable` and has the following syntax:  (1) the `for` keyword, (2) the element variable you choose for the loop, (3) the `in` keyword, (4) the iterable itself, and the colon `:` operator signaling the beginning of the indented code block below:
 
 ```python
->>> main_food_groups = ["candy", "candy canes", "candy corn", "syrup"]
->>> for group in main_food_groups:
-...     print(group)
-...
-candy
-candy canes
-candy corn
-syrup
+main_food_groups = ["candy", "candy canes", "candy corn", "syrup"]
+
+for group in main_food_groups:
+  print(group)
 ```
 
 <GatsbyImage
@@ -115,11 +114,27 @@ for chr in twelfth_night:
       # whatever else might be
 ```
 
-<Headings.myH4>Range & Enumerate</Headings.myH4>
+<Headings.myH4>Intro to range and enumerate</Headings.myH4>
+
+`for` loops and sequential data types are inseparable.  
+
+You have to remember that in `strings` or `lists`, to take the most common examples of sequential types, any given element is really two values at once:  the data and the index value.  For example, in this list of state abbreviations 
+
+```python 
+states = ["AK", "AL", "AZ" ...]
+```
+
+"AK", the first element, is associated with the index value `0`, and "AL" with `1`, etc.  
+
+And often enough you need to use that index value.  However, the problem with the `for` loop is, in its basic form, does not allow the programmer to grab that index value --- unless you want to use a clunky sentinel value you might use with `while` loops.  
+
+Enter `range` and `enumerate`.
+
+<Headings.myH4>Range</Headings.myH4>
 
 <Blockquote display='default'>
 
-Sometimes, you need to loop with explicit indices (such as the positions at which values occur in a list). You can use the `range` command [function] together with the `len` command [function] on the list to generate a sequence of indices for use by the for loop. This code prints out all the positions in a list where it finds negative numbers ...
+Sometimes you need to loop with explicit indices (such as the positions at which values occur in a list). You can use the `range` command together with the `len` command on the list to generate a sequence of indices for use by the for loop ....
 
 Given a number `n`, `range(n)` returns a sequence `0, 1, 2, …, n – 2, n – 1`. So passing it the length of a list (found using `len`) produces a sequence of the indices for that list’s elements. The `range` function doesn’t build a Python list of `integers`; it just appears to. Instead, it creates a `range` object that produces `integers` on demand.
 
@@ -137,3 +152,49 @@ for i in range(len(x)):
     print("Found a negative number at index ", i)
 
 ```
+
+`range` has more than one use, e.g., wrapping it in `list()` to create a list of integer values using a single integer argument, itself not included and the start at `0`.  (cf. use with `len` above.) 
+
+```python 
+>>> list(range(10))
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+... or using two arguments, with the first integer argument, the start, included; the second integer argument excluded: 
+
+
+```python 
+>>> list(range(1, 11))
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+```
+
+With three integer arguments, the arguments represent, in order, the start, stop, and step:
+
+```python 
+>>> list(range(0, 30, 5))
+[0, 5, 10, 15, 20, 25]
+>>> list(range(0, 10, 3))
+[0, 3, 6, 9]
+>>> list(range(0, -10, -1))
+[0, -1, -2, -3, -4, -5, -6, -7, -8, -9]
+>>> list(range(0))
+[]
+```
+
+Try it out:
+
+<iframe src="https://trinket.io/embed/python3/ab700c9475?showInstructions=true" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+<Headings.myH4>Enumerate</Headings.myH4>
+
+The `enumerate` function improves on the `for` loop without relying on `range`.  Instead of using the latter as a counter of sorts, you can do 
+
+```python
+x = [1, 3, -7, 4, 9, -5, 4]
+
+for i, item in enumerate(x):
+  if item < 0:
+    print("Found a negative number at index ", i)
+```
+
