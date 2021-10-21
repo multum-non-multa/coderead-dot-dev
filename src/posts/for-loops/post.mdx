@@ -1,13 +1,13 @@
 ---
 title: For Loops
 slug: for-loops
-image: ./images/main.png
+image: ./images/main.jpeg
 date: 2021-10-19
 author: winston smith
 category: loops
 readTime: 5
 embeddedImages:
-  - ./images/diagram.png
+  - ./images/main.jpeg
 ---
 
 import { Link } from 'gatsby'
@@ -31,9 +31,7 @@ scores = [23, 145, 89, 9, -12]
 
 ```
 
-But you want to go through the list and examine each score in the list. The reasons for wanting to do so are legion. You want to multiply each score, subtract out the minimum and maximum, determine an average or standard deviation.
-
-You may want to merely print them all out.
+But you want to go through the list and examine each score in the list. The reasons for wanting to do so are legion. You may want to multiply each score, subtract out the minimum and maximum, determine an average or standard deviation, etc. You may merely want to print them all.
 
 <Headings.myH4>Syntax</Headings.myH4>
 
@@ -42,7 +40,19 @@ for score in scores:
   # do something with each score
 ```
 
-Unlike the `while` loop, you need not plant a sentinel value in, i.e., a counter that tells you when you've finished the loop. The `for` loop runs only until the end of the iterable, whether a `string` or `list` or whatever other `iterable` you are dealing with.
+Unlike the `while` loop:
+
+- you do not use a boolean expression to determine whether the loop is entered
+
+- you need not plant a sentinel value in, i.e., a counter that tells you when you've finished the loop.
+
+<Blockquote display='info'>
+
+You need <em>not always</em> use a counter in a `while` loop but it occurs often enough. It is the boolean expression that determines the loop's duration and that boolean expression may or may not depend on a counted value.
+
+</Blockquote>
+
+The `for` loop runs only until the end of the iterable, whether a `string` or `list` or whatever other `iterable` you are dealing with.
 
 You can also merely use the loop to perform a set number of operations independent of the size or even presence of a list.
 
@@ -89,7 +99,7 @@ But wise men, folly-fall'n, quite taint their wit.
 num_vowels = 0
 
 for chr in twelfth_night:
-    if chr in vowels:
+    if chr.lower() in vowels:
         num_vowels += 1
 ```
 
@@ -107,12 +117,15 @@ for chr in twelfth_night:
 
 <Headings.myH4>Range & Enumerate</Headings.myH4>
 
-
 <Blockquote display='default'>
 
-<h5>From "The Quick Python Book"</h5>
+Sometimes, you need to loop with explicit indices (such as the positions at which values occur in a list). You can use the `range` command [function] together with the `len` command [function] on the list to generate a sequence of indices for use by the for loop. This code prints out all the positions in a list where it finds negative numbers ...
 
-Sometimes, you need to loop with explicit indices (such as the positions at which values occur in a list). You can use the <Code>range</Code> command together with the <Code>len</Code> command on the list to generate a sequence of indices for use by the for loop. This code prints out all the positions in a list where it finds negative numbers:
+Given a number `n`, `range(n)` returns a sequence `0, 1, 2, …, n – 2, n – 1`. So passing it the length of a list (found using `len`) produces a sequence of the indices for that list’s elements. The `range` function doesn’t build a Python list of `integers`; it just appears to. Instead, it creates a `range` object that produces `integers` on demand.
+
+<h5>
+  <em>The Quick Python Book</em>, p. 102{' '}
+</h5>
 
 </Blockquote>
 
@@ -124,4 +137,3 @@ for i in range(len(x)):
     print("Found a negative number at index ", i)
 
 ```
-
