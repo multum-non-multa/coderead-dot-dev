@@ -23,9 +23,9 @@ import {
 
 A list can contain any data type, including lists themselves.
 
-That is, instead of a list of strings (`['dog', 'horse', ...]`) or integers (`[45, 23, 12, 33, ...]`), a list may itself contain lists. As we'll see, that is quite useful.
+That is, instead of a list of strings (`['dog', 'horse', ...]`) or integers (`[45, 23, 12, 33, ...]`), a list may itself contain lists. This is quite useful in myriad contexts.
 
-By way of example, a list of sites and their owners and revenues might appear as:
+A list of sites and their owners and revenues might appear as:
 
 ```python
 
@@ -43,14 +43,18 @@ _Note that that larger (or outside list) contains within it five lists, each wit
 
 <Headings.myH4>Modelling Two-Dimensional Objects</Headings.myH4>
 
-This two-dimensional list can be quite useful for modeling any number of objects. One relevant example is modelling a game board, for example tic-tac-toe:
+This two-dimensional list approach can be used to model any number of objects. One relevant example is the model for a game board, here tic-tac-toe:
 
 ```python
 
 tic_tac_toe_board = [
+
   ['X', 'O', 'X'],
+
   ['O', 'X', 'X'],
+
   ['O', 'O', 'X'],
+
 ]
 
 ```
@@ -61,7 +65,7 @@ With these _nested_ lists, you can use loops (sometimes nested, somtimes not) to
 
 for horizontal_squares in tic_tac_toe_board:
   if horizontal_squares == ['X', 'X', 'X']:
-    # note that X wins
+    # X wins
 ```
 
 <Blockquote display='info'>
@@ -72,11 +76,11 @@ for horizontal_squares in tic_tac_toe_board:
 
   </Blockquote>
 
-Beyond games, a list of lists is a means for modelling matrices, each row representing a vector of data.
+Beyond games, a list of lists is a means to model matrices, each row representing a vector of data.
 
 A common equation involves transposing a matrix, i.e., 'flipping' it by 90 degrees.
 
-Using enumeration and a nested loop, you can accomplish that. Note the creation of the `nums_transposed` list. When appending to the temporary list, `vertical`, you invert the index values --- the row's number becames the column's and vice versa:
+Using enumeration and a nested loop, you can accomplish that. Note the creation of the `nums_transposed` list. When appending to the temporary list, `vertical`, you invert the index values --- the row's number becomes the column's and vice versa:
 
 ```python
 nums = [
@@ -89,6 +93,7 @@ nums_transposed = []
 for i, row in enumerate(nums):
     vertical = []
     for j, col in enumerate(row):
+        # note transposition of i and j
         vertical.append(nums[j][i])
     nums_transposed.append(vertical)
 
@@ -117,7 +122,7 @@ will print out:
 
 <Blockquote display='warning'>
 
-How might <b>this</b> be used in tic-tac-toe?
+How might <b>this</b> be used in a tic-tac-toe game?
 
   </Blockquote>
 
