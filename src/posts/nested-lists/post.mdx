@@ -1,0 +1,134 @@
+---
+title: Nested Lists and for Loops
+slug: nested-lists
+image: ./images/carbon.png
+date: 2021-11-07
+author: o'brien
+category: nested lists and loops
+readTime: 5
+embeddedImages:
+  - ./images/carbon.png
+---
+
+import { Link } from 'gatsby'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import {
+  Headings,
+  Code,
+  Video,
+  RegVideo,
+  Blockquote,
+  PrismSetup,
+} from '../../components/Complete'
+
+A list can contain any data type, including lists themselves.
+
+That is, instead of a list of strings (`['dog', 'horse', ...]`) or integers (`[45, 23, 12, 33, ...]`), a list may itself contain lists. As we'll see, that is quite useful.
+
+By way of example, a list of sites and their owners and revenues might appear as:
+
+```python
+
+sites = [
+  ['domain', 'email', 'revenues'],
+  ['antonbreladoes', 'roger@wilsonrw.ze', 96141],
+  ['sullivanrobertsjones', 'veron@vbz.au', 88646],
+  ['walterzicons', 'sean@lowez.io', 40641],
+  ['finleysteele', 'sara@bellwell.io', 48566]
+]
+
+```
+
+_Note that that larger (or outside list) contains within it five lists, each with three items._
+
+<Headings.myH4>Modelling Two-Dimensional Objects</Headings.myH4>
+
+This two-dimensional list can be quite useful for modeling any number of objects. One relevant example is modelling a game board, for example tic-tac-toe:
+
+```python
+
+tic_tac_toe_board = [
+  ['X', 'O', 'X'],
+  ['O', 'X', 'X'],
+  ['O', 'O', 'X'],
+]
+
+```
+
+With these _nested_ lists, you can use loops (sometimes nested, somtimes not) to determine the data they contain:
+
+```python
+
+for horizontal_squares in tic_tac_toe_board:
+  if horizontal_squares == ['X', 'X', 'X']:
+    # note that X wins
+```
+
+<Blockquote display='info'>
+
+(1) How would you check the vertical squares?
+
+(2) How about the diagonal? Upper left to lower right or Lower left to upper right?
+
+  </Blockquote>
+
+Beyond games, a list of lists is a means for modelling matrices, each row representing a vector of data.
+
+A common equation involves transposing a matrix, i.e., 'flipping' it by 90 degrees.
+
+Using enumeration and a nested loop, you can accomplish that. Note the creation of the `nums_transposed` list. When appending to the temporary list, `vertical`, you invert the index values --- the row's number becames the column's and vice versa:
+
+```python
+nums = [
+    [2,5,6],
+    [7,8,1],
+    [4,9,3]
+]
+
+nums_transposed = []
+for i, row in enumerate(nums):
+    vertical = []
+    for j, col in enumerate(row):
+        vertical.append(nums[j][i])
+    nums_transposed.append(vertical)
+
+for num in nums:
+    print(num)
+
+for num in nums_transposed:
+    print(num)
+
+```
+
+will print out:
+
+```bash
+# first matrix
+[2, 5, 6]
+[7, 8, 1]
+[4, 9, 3]
+
+# transposed
+[2, 7, 4]
+[5, 8, 9]
+[6, 1, 3]
+
+```
+
+<Blockquote display='warning'>
+
+How might <b>this</b> be used in tic-tac-toe?
+
+  </Blockquote>
+
+Try it out:
+
+<iframe
+  src="https://trinket.io/embed/python3/4112cdc70c?runOption=run&showInstructions=true"
+  width="100%"
+  height="600"
+  frameborder="0"
+  marginwidth="0"
+  marginheight="0"
+  allowfullscreen
+></iframe>
