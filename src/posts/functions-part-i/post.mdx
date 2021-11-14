@@ -7,6 +7,7 @@ author: herman munster
 category: functions
 readTime: 6
 embeddedImages:
+  - ./images/main.png
   - ./images/anatomy.png
 ---
 
@@ -21,9 +22,19 @@ import {
   PrismSetup,
 } from '../../components/Complete'
 
-As mentioned in a prior post (cf. Alfred for more), ### Built-ins
+<Blockquote display="info">
 
-We've seen a number of __built-in__ methods or functions in Python, e.g.,
+Don’t repeat yourself. Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.
+
+— Dave Thomas
+
+</Blockquote>
+
+It may be unhelpful when you are first introduced to functions, but it will dawn on you soon enough:  functions allow you to repeat _operations_ without repeating the _code_ that implements them.  
+
+Thus, functions are fundamental to the programming acronym _D.R.Y._, representing the enjoinder "__Don't Repeat Yourself__."
+
+As mentioned in a prior post (see here: [Alfred's earlier post on functions](https://multum-non-multa.github.io/code/2021/09/06/conversion-math-module-etc.html)), Python has over three dozen __built-in__ functions such as the may we've used (and taken for granted):
 
 - `len()` to determine the length of a `string`
 
@@ -35,13 +46,59 @@ We've seen a number of __built-in__ methods or functions in Python, e.g.,
 
 - `input()`
 
+<br/>
 
----
+In addition to __built-ins__, Python (as is the case of other languages) provides modules with hundreds of additional functions you can merely import and use free of charge and as often as you like.  
+
+To take but one example, the math module contains dozens of functions, some of which are ...
+
+```python 
+>>> import math
+>>> math.fabs(-234) # returns the absolute value
+234.0
+>>> math.factorial(12) # returns factorial
+479001600
+>>> math.gcd(24,54) # finds the greatest common divisor
+6
+```
+
+<br/>
+
+In addition to these few, Python math's module provides functions for use in, among others, trigonometric, algebraic, and geometric operations.
+
+
+<Headings.myH4>Custom Functions</Headings.myH4>
+
+As said in a prior post, you'll be spending a lot of time crafting your own functions.  
+
+Below is the anatomy of a function to help you understand something of what's going on under the hood with these built-in functions and the math module.
+
+A function is essentially a _black box_.  That means that you need not know how it operates in order to use it.  
+
+You simply need to know two things:  
+
+- what type of thing to put in (i.e., __parameters__ to __pass__) and 
+
+- what type of thing it will return to you (__return value__)
+
+<br/>
+
+<GatsbyImage style={{border:"5px solid gray", padding: "25px", margin: "5px 30px 10px 50px", borderRadius: "5px"}}
+  image={getImage(props.embeddedImages[0])}
+  title="abstract math function"
+  alt="math function rep"
+/>
+
+
+<Headings.myH4>Function Syntax in Python</Headings.myH4>
+
+How is that done in Python?  
+
+As with any 
+
 
 <GatsbyImage
-  image={getImage(props.embeddedImages[0])}
+  image={getImage(props.embeddedImages[1])}
   title="function diagram"
   alt="anatomy of a function"
 />
-
-aldskfj
