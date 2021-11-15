@@ -2,7 +2,7 @@
 title: Functions Return
 slug: functions-part-i
 image: ./images/main.png
-date: 2021-11-11
+date: 2021-11-14
 author: herman munster
 category: functions
 readTime: 6
@@ -30,11 +30,13 @@ Don’t repeat yourself. Every piece of knowledge must have a single, unambiguou
 
 </Blockquote>
 
-It may be unhelpful when you are first introduced to functions, but it will dawn on you soon enough:  functions allow you to repeat _operations_ without repeating the _code_ that implements them.  
+It may be unhelpful when you are first introduced to functions, but it will dawn on you soon enough: functions allow you to repeat _operations_ without repeating the _code_ that implements them.
 
-Thus, functions are fundamental to the programming acronym _D.R.Y._, representing the enjoinder "__Don't Repeat Yourself__."
+In addition, you never need to understand what goes on inside that 'black box' that is the function's definition.
 
-As mentioned in a prior post (see here: [Alfred's earlier post on functions](https://multum-non-multa.github.io/code/2021/09/06/conversion-math-module-etc.html)), Python has over three dozen __built-in__ functions such as the may we've used (and taken for granted):
+Thus, functions are fundamental to the programming acronym _D.R.Y._, representing the enjoinder "**Don't Repeat Yourself**."
+
+As mentioned in a prior post (see here: [Alfred's earlier post on functions](https://multum-non-multa.github.io/code/2021/09/06/conversion-math-module-etc.html)), Python has over three dozen **built-in** functions such as the many we've used (and taken for granted):
 
 - `len()` to determine the length of a `string`
 
@@ -46,13 +48,13 @@ As mentioned in a prior post (see here: [Alfred's earlier post on functions](htt
 
 - `input()`
 
-<br/>
+<br />
 
-In addition to __built-ins__, Python (as is the case of other languages) provides modules with hundreds of additional functions you can merely import and use free of charge and as often as you like.  
+In addition to **built-ins**, Python (as is the case of other languages) provides modules with hundreds of additional functions you can merely import and use free of charge and as often as you like.
 
 To take but one example, the math module contains dozens of functions, some of which are ...
 
-```python 
+```python
 >>> import math
 >>> math.fabs(-234) # returns the absolute value
 234.0
@@ -62,43 +64,114 @@ To take but one example, the math module contains dozens of functions, some of w
 6
 ```
 
-<br/>
+<br />
 
-In addition to these few, Python math's module provides functions for use in, among others, trigonometric, algebraic, and geometric operations.
+In addition to these, Python's math module provides functions for use in, among others, trigonometric, algebraic, and geometric operations.
 
+You can call them an unlimited number of times, and you need not have _any idea_ how they work.
 
 <Headings.myH4>Custom Functions</Headings.myH4>
 
-As said in a prior post, you'll be spending a lot of time crafting your own functions.  
+As said in a prior post, you'll be spending a lot of time crafting your own functions.
 
-Below is the anatomy of a function to help you understand something of what's going on under the hood with these built-in functions and the math module.
+A function is essentially a _black box_. That means that you need not know how it operates in order to use it.
 
-A function is essentially a _black box_.  That means that you need not know how it operates in order to use it.  
+You simply need to know two things:
 
-You simply need to know two things:  
+- what type of thing to put in (i.e., **parameters** to **pass**) and
 
-- what type of thing to put in (i.e., __parameters__ to __pass__) and 
+- what type of thing it will return to you (**return value**)
 
-- what type of thing it will return to you (__return value__)
+<br />
 
-<br/>
-
-<GatsbyImage style={{border:"5px solid gray", padding: "25px", margin: "5px 30px 10px 50px", borderRadius: "5px"}}
+<GatsbyImage
+  style={{
+    border: '5px solid gray',
+    padding: '25px',
+    margin: '5px 30px 10px 50px',
+    borderRadius: '5px',
+  }}
   image={getImage(props.embeddedImages[0])}
   title="abstract math function"
   alt="math function rep"
 />
 
-
 <Headings.myH4>Function Syntax in Python</Headings.myH4>
 
-How is that done in Python?  
+How is that done in Python?
 
-As with any 
+Functions in Python depend on seven building blocks:
 
+- keyword `def`
+
+- name you give the function using the same rules for any variable name
+
+- set of parentheses
+
+- parameters placed between the parentheses: `(parameters )`
+
+- the colon `:` to start the code block
+
+- the code block itself, i.e., the code that _implements_ what you want the function to accomplish
+
+- the `return` statement (optional if you are returning no value)
+
+<br />
+
+Below is the anatomy of a function.
+
+<br />
 
 <GatsbyImage
   image={getImage(props.embeddedImages[1])}
   title="function diagram"
   alt="anatomy of a function"
 />
+
+<Headings.myH4>Function Call</Headings.myH4>
+
+But until you call (or _invoke_) the function, nothing will happen (save for storing the function definition in memory). In order to use the function for concrete problems, you must _call_ it.
+
+When you do call the function, only three things are necessary:
+
+- the function name
+
+- the `()` parentheses
+
+- and arguments within those parentheses (if arguments are even necessary)
+
+<br />
+
+Let's say you've defined a function that returns the last name of all customers in your database who live in a particular zip code. You might see a function **definition**:
+
+```python
+# in file:
+# database_operations.py
+def get_name_by_zip(code):
+  data = fetch_from_database(code)
+  return data.lastname
+
+```
+
+When you want to use it (and you can do so as many times as you like) in another file, you might see the function **call** like so:
+
+```python
+from database_operations import get_name_by_zip
+
+customers_20002 = get_name_by_zip(20002)
+customers_60603 = get_name_by_zip(60603)
+customers_91456 = get_name_by_zip(91456)
+
+```
+
+(You can use the function in the same file in which you define it, but typically that will not be the case.)
+
+---
+
+<Blockquote display="info">
+
+Going back to the original point made above, one of the many beauties of functions is that they allow you to implement the necessary code once but call it repeatedly, never again having to worry about how it's implemented.
+
+</Blockquote>
+
+---
