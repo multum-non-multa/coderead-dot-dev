@@ -1,0 +1,76 @@
+---
+title: Pygame's Infrastructure
+slug: pygame-infrastructure
+image: ./images/main.png
+date: 2022-05-02
+author: quasimodo
+category: pygame
+readTime: 10
+embeddedImages:
+  - ./images/main.png
+  - ./images/car-coord-1.png
+  - ./images/car-coord-2.png
+---
+
+import { Link } from 'gatsby'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import {
+  Headings,
+  Code,
+  Video,
+  RegVideo,
+  Blockquote,
+  PrismSetup,
+} from '../../components/Complete'
+
+<Blockquote display="info">
+
+The eye cannot hope to see as well as the mind, which has, at its ready disposal, the sheer strength of reason and the wiles of imagination.
+
+- Multun Non Multa
+
+</Blockquote>
+
+<Blockquote display="info">
+
+From my youth, I was interested in both art and computer but eventually realised more was created by keyboard than by hand.
+
+I enjoyed modifying computer games more than playing them; the rest was success.
+
+- Co-founder of <em><a href="https://www.with.in/">Within</a></em>, a VR and AR company
+
+</Blockquote>
+
+
+---
+
+Pygame is a tool.  That's all.  But what a tool it is.
+
+## The Window's Infrastructure
+
+
+<GatsbyImage
+  style={{
+    border: '5px solid gray',
+    padding: '25px',
+    margin: '5px 30px 10px 50px',
+    borderRadius: '5px',
+  }}
+  image={getImage(props.embeddedImages[1])}
+  title="Windowing"
+  alt="window"
+/>
+
+
+
+<GatsbyImage
+  style={{
+    border: '5px solid gray',
+    padding: '25px',
+    margin: '5px 30px 10px 50px',
+    borderRadius: '5px',
+  }}
+  image={getImage(props.embeddedImages[2])}
+  title="Windowing"
+  alt="window"
+/>
